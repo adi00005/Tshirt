@@ -160,16 +160,32 @@ app.use('/uploads', express.static(uploadsDir));
 app.use('/assets', express.static(publicDir));
 
 // Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  // app.use(express.static(path.join(__dirname, '../frontend/build')));
-  // app.get('*', (req, res) => {
-  //   res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
-  // });
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running...');
+// if (process.env.NODE_ENV === 'production') {
+//   // app.use(express.static(path.join(__dirname, '../frontend/build')));
+//   // app.get('*', (req, res) => {
+//   //   res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
+//   // });
+// } else {
+//   app.get('/', (req, res) => {
+//     res.send('API is running...');
+//   });
+// }
+
+// Root route for Render health checks
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Tshirt Backend Running Successfully 🚀",
   });
-}
+});
+
+// Root route for health check (works in dev + production)
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Tshirt Backend is running 🚀",
+    timestamp: new Date(),
+  });
+});
 
 // Error handling middleware
 app.use(notFound);
