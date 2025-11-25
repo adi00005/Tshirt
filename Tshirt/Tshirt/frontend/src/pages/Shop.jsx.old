@@ -1,0 +1,840 @@
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import ProductCard from '../components/ProductCard';
+import productsData from '../data/products';
+import './Shop.css';
+
+// Number of products per page
+const ITEMS_PER_PAGE = 12;
+
+const Shop = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [allProducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  
+  // Filter states
+  const [selectedSizes, setSelectedSizes] = useState([]);
+  const [selectedColors, setSelectedColors] = useState([]);
+  const [priceRange, setPriceRange] = useState([0, 5000]);
+  const [sortBy, setSortBy] = useState('featured');
+  const [sortOrder, setSortOrder] = useState('desc');
+  const [showFilters, setShowFilters] = useState(false);
+  const [expandedFilters, setExpandedFilters] = useState({
+    category: true,
+    price: true,
+    size: true,
+    color: true
+  });
+  
+  // Reset all filters
+  const resetFilters = useCallback(() => {
+    setSelectedSizes([]);
+    setSelectedColors([]);
+    setPriceRange([0, 5000]);
+    setSearchQuery('');
+    setSortBy('featured');
+    setSortOrder('desc');
+    setSearchParams({});
+  }, [setSearchParams]);
+  
+  // Alias for resetFilters for backward compatibility
+  const clearAllFilters = resetFilters;
+  
+  const category = searchParams.get('category') || 'all';
+
+  // Load products
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setLoading(true);
+        // In a real app, you would fetch from an API here
+        // const response = await fetch('/api/products');
+        // const data = await response.json();
+        setAllProducts(productsData);
+        setFilteredProducts(productsData);
+      } catch (error) {
+        console.error('Error loading products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
+  // Apply filters and sorting
+  useEffect(() => {
+    if (allProducts.length === 0) return;
+
+    let filtered = [...allProducts];
+    
+    // Filter by category
+    if (category && category !== 'all') {
+      if (category === 'sale') {
+        filtered = filtered.filter(product => product.sale_price && product.sale_price > 0);
+      } else if (category === 'featured') {
+        filtered = filtered.filter(product => product.featured === true);
+      } else {
+        filtered = filtered.filter(product => 
+          product.category && product.category.toLowerCase() === category.toLowerCase()
+        );
+      }
+    }
+
+    // Filter by search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(
+        product => 
+          product.name.toLowerCase().includes(query) ||
+          product.brand.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter by price range
+    result = result.filter(
+      product => 
+        (product.sale_price || product.price) >= priceRange[0] &&
+        (product.sale_price || product.price) <= priceRange[1]
+    );
+
+    // Filter by sizes
+    if (selectedSizes.length > 0) {
+      result = result.filter(product => 
+        product.sizes.some(size => selectedSizes.includes(size))
+      );
+    }
+
+    // Filter by colors
+    if (selectedColors.length > 0) {
+      result = result.filter(product =>
+        product.colors.some(color => 
+          selectedColors.includes(color.toLowerCase())
+        )
+      );
+    }
+
+    // Sort products
+    result.sort((a, b) => {
+      switch (sortBy) {
+        case 'price':
+          const priceA = a.sale_price || a.price;
+          const priceB = b.sale_price || b.price;
+          return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
+        case 'name':
+          return sortOrder === 'asc' 
+            ? a.name.localeCompare(b.name) 
+            : b.name.localeCompare(a.name);
+        case 'rating':
+          return sortOrder === 'asc' 
+            ? a.average_rating - b.average_rating 
+            : b.average_rating - a.average_rating;
+        case 'featured':
+        default:
+          // Featured items first, then by rating
+          if (a.featured && !b.featured) return -1;
+          if (!a.featured && b.featured) return 1;
+          return b.average_rating - a.average_rating;
+      }
+    });
+
+    setFilteredProducts(result);
+    setCurrentPage(1); // Reset to first page when filters change
+  }, [allProducts, category, searchQuery, priceRange, selectedSizes, selectedColors, sortBy, sortOrder]);
+
+  // Update displayed products based on pagination
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    setDisplayedProducts(filteredProducts.slice(startIndex, endIndex));
+    setTotalPages(Math.ceil(filteredProducts.length / ITEMS_PER_PAGE));
+  }, [filteredProducts, currentPage]);
+
+  // Handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Toggle filter section
+  const toggleFilterSection = (section) => {
+    setExpandedFilters(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  // Toggle color filter
+  const toggleColor = (color) => {
+    const colorLower = color.toLowerCase();
+    setSelectedColors(prev => 
+      prev.includes(colorLower)
+        ? prev.filter(c => c !== colorLower)
+        : [...prev, colorLower]
+    );
+  };
+
+  // Handle price range change
+  const handlePriceChange = (min, max) => {
+    setPriceRange([min, max]);
+  };
+
+  // Handle search
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const query = e.target.search.value.trim();
+    setSearchQuery(query);
+    
+    // Update URL with search query
+    const params = new URLSearchParams(searchParams);
+    if (query) {
+      params.set('search', query);
+    } else {
+      params.delete('search');
+    }
+    setSearchParams(params);
+  };
+
+  // Get unique categories, sizes, and colors in a single useMemo for better performance
+  const { categories, allSizes, allColors } = useMemo(() => {
+    const cats = new Set(['all', 'men', 'women', 'kids', 'sale']);
+    const sizes = new Set();
+    const colors = new Set();
+    
+    allProducts.forEach(product => {
+      if (product.category) cats.add(product.category);
+      product.sizes?.forEach(size => sizes.add(size));
+      product.colors?.forEach(color => colors.add(color));
+    });
+    
+    return {
+      categories: Array.from(cats),
+      allSizes: Array.from(sizes).sort(),
+      allColors: Array.from(colors).sort()
+    };
+  }, [allProducts]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Filters Sidebar */}
+        <div className="w-full md:w-64 flex-shrink-0">
+          <div className="bg-white p-4 rounded-lg shadow-sm sticky top-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold">Filters</h2>
+              <button 
+                onClick={resetFilters}
+                className="text-sm text-blue-600 hover:text-blue-800"
+              >
+                Reset All
+              </button>
+            </div>
+
+            {/* Search */}
+            <div className="mb-6">
+              <form onSubmit={handleSearch}>
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="search"
+                    placeholder="Search products..."
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    defaultValue={searchQuery}
+                  />
+                  <button 
+                    type="submit"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            {/* Price Range */}
+            <div className="mb-6">
+              <div 
+                className="flex justify-between items-center cursor-pointer mb-2"
+                onClick={() => toggleFilterSection('price')}
+              >
+                <h3 className="font-medium">Price Range</h3>
+                <svg 
+                  className={`w-4 h-4 transform transition-transform ${expandedFilters.price ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              {expandedFilters.price && (
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span>${priceRange[0]}</span>
+                    <span>${priceRange[1]}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="5000"
+                    step="100"
+                    value={priceRange[0]}
+                    onChange={(e) => handlePriceChange(Number(e.target.value), priceRange[1])}
+                    className="w-full"
+                  />
+                  <input
+                    type="range"
+                    min="0"
+                    max="5000"
+                    step="100"
+                    value={priceRange[1]}
+                    onChange={(e) => handlePriceChange(priceRange[0], Number(e.target.value))}
+                    className="w-full"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Sizes */}
+            <div className="mb-6">
+              <div 
+                className="flex justify-between items-center cursor-pointer mb-2"
+                onClick={() => toggleFilterSection('size')}
+              >
+                <h3 className="font-medium">Sizes</h3>
+                <svg 
+                  className={`w-4 h-4 transform transition-transform ${expandedFilters.size ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              {expandedFilters.size && (
+                <div className="flex flex-wrap gap-2">
+                  {sizes.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => toggleSize(size)}
+                      className={`px-3 py-1 text-sm rounded-full border ${
+                        selectedSizes.includes(size)
+                          ? 'bg-blue-100 border-blue-500 text-blue-700'
+                          : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Colors */}
+            <div className="mb-6">
+              <div 
+                className="flex justify-between items-center cursor-pointer mb-2"
+                onClick={() => toggleFilterSection('color')}
+              >
+                <h3 className="font-medium">Colors</h3>
+                <svg 
+                  className={`w-4 h-4 transform transition-transform ${expandedFilters.color ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              {expandedFilters.color && (
+                <div className="flex flex-wrap gap-2">
+                  {colors.map((color) => (
+                    <button
+                      key={color}
+                      onClick={() => toggleColor(color)}
+                      className={`w-8 h-8 rounded-full border-2 ${
+                        selectedColors.includes(color.toLowerCase())
+                          ? 'ring-2 ring-offset-2 ring-blue-500'
+                          : 'border-gray-200'
+                      }`}
+                      style={{ backgroundColor: color.toLowerCase() }}
+                      title={color}
+                      aria-label={color}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Products Grid */}
+        <div className="flex-1">
+          {/* Sort and View Options */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+            <div className="text-sm text-gray-600">
+              Showing {Math.min((currentPage - 1) * ITEMS_PER_PAGE + 1, filteredProducts.length)}-{
+                Math.min(currentPage * ITEMS_PER_PAGE, filteredProducts.length)
+              } of {filteredProducts.length} products
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-600">Sort by:</span>
+                <select 
+                  value={`${sortBy}:${sortOrder}`}
+                  onChange={(e) => {
+                    const [sort, order] = e.target.value.split(':');
+                    setSortBy(sort);
+                    setSortOrder(order);
+                  }}
+                  className="text-sm border rounded-md px-3 py-1 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                >
+                  <option value="featured:desc">Featured</option>
+                  <option value="price:asc">Price: Low to High</option>
+                  <option value="price:desc">Price: High to Low</option>
+                  <option value="name:asc">Name: A to Z</option>
+                  <option value="name:desc">Name: Z to A</option>
+                  <option value="rating:desc">Highest Rated</option>
+                </select>
+              </div>
+              <button 
+                onClick={() => setShowFilters(!showFilters)}
+                className="md:hidden flex items-center gap-1 text-sm text-gray-700 hover:text-blue-600"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                {showFilters ? 'Hide Filters' : 'Show Filters'}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Filters */}
+          {showFilters && (
+            <div className="md:hidden bg-white p-4 rounded-lg shadow-sm mb-6">
+              {/* Mobile filter content would go here */}
+              <p className="text-sm text-gray-600">Use the filters in the sidebar on larger screens.</p>
+            </div>
+          )}
+
+          {/* Products Grid */}
+          {filteredProducts.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {displayedProducts.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
+              </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex justify-center mt-8">
+                  <nav className="flex items-center gap-1">
+                    <button
+                      onClick={() => handlePageChange(1)}
+                      disabled={currentPage === 1}
+                      className="px-3 py-1 rounded-md border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      &laquo;
+                    </button>
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="px-3 py-1 rounded-md border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      &lsaquo;
+                    </button>
+
+                    {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                      // Show pages around current page
+                      let pageNum;
+                      if (totalPages <= 5) {
+                        pageNum = i + 1;
+                      } else if (currentPage <= 3) {
+                        pageNum = i + 1;
+                      } else if (currentPage >= totalPages - 2) {
+                        pageNum = totalPages - 4 + i;
+                      } else {
+                        pageNum = currentPage - 2 + i;
+                      }
+
+                      return (
+                        <button
+                          key={pageNum}
+                          onClick={() => handlePageChange(pageNum)}
+                          className={`px-3 py-1 rounded-md border ${
+                            currentPage === pageNum
+                              ? 'bg-blue-600 text-white border-blue-600'
+                              : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                          } text-sm font-medium`}
+                        >
+                          {pageNum}
+                        </button>
+                      );
+                    })}
+
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="px-3 py-1 rounded-md border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      &rsaquo;
+                    </button>
+                    <button
+                      onClick={() => handlePageChange(totalPages)}
+                      disabled={currentPage === totalPages}
+                      className="px-3 py-1 rounded-md border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      &raquo;
+                    </button>
+                  </nav>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center py-12">
+              <svg
+                className="mx-auto h-12 w-12 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h3 className="mt-2 text-sm font-medium text-gray-900">No products found</h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Try adjusting your search or filter to find what you're looking for.
+              </p>
+              <div className="mt-6">
+                <button
+                  type="button"
+                  onClick={resetFilters}
+                  className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Reset all filters
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+
+
+    // Filter by search query
+    if (searchQuery) {
+      filtered = filtered.filter(product =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.brand?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.colors?.some(color => color.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    }
+
+    // Filter by sizes
+    if (selectedSizes.length > 0) {
+      filtered = filtered.filter(product =>
+        product.sizes?.some(size => selectedSizes.includes(size))
+      );
+    }
+
+    // Filter by colors
+    if (selectedColors.length > 0) {
+      filtered = filtered.filter(product =>
+        product.colors?.some(color => selectedColors.includes(color))
+      );
+    }
+
+    // Filter by price range
+    filtered = filtered.filter(product => {
+      const price = product.sale_price || product.price;
+      return price >= priceRange[0] && price <= priceRange[1];
+    });
+
+    // Sort products
+    filtered.sort((a, b) => {
+      let aValue, bValue;
+      
+      switch (sortBy) {
+        case 'price':
+          aValue = a.sale_price || a.price;
+          bValue = b.sale_price || b.price;
+          break;
+        case 'rating':
+          aValue = a.average_rating || 0;
+          bValue = b.average_rating || 0;
+          break;
+        case 'name':
+        default:
+          aValue = a.name.toLowerCase();
+          bValue = b.name.toLowerCase();
+          break;
+      }
+
+      if (sortOrder === 'asc') {
+        return aValue > bValue ? 1 : -1;
+      } else {
+    newSearchParams.delete('search');
+  }
+  setSearchParams(newSearchParams);
+};
+
+// ...
+
+return (
+  <div className="shop-container">
+    {/* ... existing JSX ... */}
+  </div>
+);
+
+// ...
+
+<aside className={`filters-sidebar ${showFilters ? 'mobile-visible' : ''}`}>
+  <div className="filters-header">
+    <h2>Filters</h2>
+    <button 
+      className="clear-filters" 
+      onClick={clearAllFilters}
+      disabled={getActiveFiltersCount() === 0}
+    >
+      Clear all
+    </button>
+  </div>
+  {/* ... existing JSX ... */}
+</aside>
+            disabled={getActiveFiltersCount() === 0}
+          >
+            Clear all
+          </button>
+        </div>
+
+        {/* Category Filter */}
+        {renderFilterSection('Categories', 'category', (
+          <div className="category-options">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                className={`category-filter ${category === cat ? 'active' : ''}`}
+                onClick={() => navigate(`/shop${cat === 'all' ? '' : `?category=${cat}`}`)}
+              >
+                {cat === 'all' ? 'All Products' : 
+                 cat === 'sale' ? '🔥 Sale' : 
+                 `${cat.charAt(0).toUpperCase() + cat.slice(1)}'s T-Shirts`}
+              </button>
+            ))}
+          </div>
+        ))}
+
+        {/* Price Range Filter */}
+        {renderFilterSection('Price Range', 'price', (
+          <div className="price-range">
+            <div className="price-inputs">
+              <input
+                type="number"
+                className="price-input"
+                value={priceRange[0]}
+                onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
+                min="0"
+                max={priceRange[1]}
+              />
+              <span>to</span>
+              <input
+                type="number"
+                className="price-input"
+                value={priceRange[1]}
+                onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                min={priceRange[0]}
+                max="10000"
+              />
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="10000"
+              step="100"
+              value={priceRange[1]}
+              onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+              className="price-slider"
+            />
+          </div>
+        ))}
+
+        {/* Size Filter */}
+        {renderFilterSection('Size', 'size', (
+          <div className="size-options">
+            {allSizes.map(size => (
+              <div key={size} className="filter-option">
+                <input
+                  type="checkbox"
+                  id={`size-${size}`}
+                  checked={selectedSizes.includes(size)}
+                  onChange={() => toggleSize(size)}
+                />
+                <label htmlFor={`size-${size}`}>
+                  {size}
+                </label>
+              </div>
+            ))}
+          </div>
+        ))}
+
+        {/* Color Filter */}
+        {renderFilterSection('Color', 'color', (
+          <div className="color-options">
+            {allColors.map(color => (
+              <div key={color} className="filter-option">
+                <input
+                  type="checkbox"
+                  id={`color-${color}`}
+                  checked={selectedColors.includes(color)}
+                  onChange={() => toggleColor(color)}
+                />
+                <label htmlFor={`color-${color}`} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span 
+                    className="color-swatch" 
+                    style={{
+                      backgroundColor: color.toLowerCase(),
+                      width: '16px',
+                      height: '16px',
+                      borderRadius: '50%',
+                      border: '1px solid #ddd',
+                      display: 'inline-block'
+                    }}
+                  />
+                  {color}
+                </label>
+              </div>
+            ))}
+          </div>
+        ))}
+      </aside>
+
+      {/* Main Content */}
+      <main className="shop-content">
+        {/* Mobile Filter Toggle */}
+        <button 
+          className="mobile-filter-toggle"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          {showFilters ? 'Hide Filters' : `Show Filters (${getActiveFiltersCount()})`}
+        </button>
+
+        {/* Sort and View Options */}
+        <div className="shop-header">
+          <div>
+            <h1 className="shop-title">
+              {category === 'all' ? 'All Products' : 
+               category === 'sale' ? '🔥 Sale' : 
+               `${category.charAt(0).toUpperCase() + category.slice(1)}'s T-Shirts`}
+            </h1>
+            <p className="shop-subtitle">
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'item' : 'items'}
+              {getActiveFiltersCount() > 0 && ` • ${getActiveFiltersCount()} filter${getActiveFiltersCount() > 1 ? 's' : ''} applied`}
+            </p>
+          </div>
+          
+          <div className="sort-options">
+            <span className="sort-label">Sort by:</span>
+            <select 
+              className="sort-select"
+              value={`${sortBy}_${sortOrder}`}
+              onChange={handleSortChange}
+            >
+              <option value="featured_desc">Featured</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="rating_desc">Avg. Customer Review</option>
+              <option value="name_asc">Name: A to Z</option>
+              <option value="name_desc">Name: Z to A</option>
+              <option value="newest_first">Newest Arrivals</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Active Filters */}
+        {(selectedSizes.length > 0 || selectedColors.length > 0) && (
+          <div className="active-filters">
+            {selectedSizes.map(size => (
+              <div key={`active-size-${size}`} className="active-filter">
+                Size: {size}
+                <button onClick={() => toggleSize(size)}>×</button>
+              </div>
+            ))}
+            {selectedColors.map(color => (
+              <div key={`active-color-${color}`} className="active-filter">
+                Color: {color}
+                <button onClick={() => toggleColor(color)}>×</button>
+              </div>
+            ))}
+            <button 
+              className="clear-filters" 
+              onClick={clearAllFilters}
+            >
+              Clear all
+            </button>
+          </div>
+        )}
+
+        {/* Products Grid */}
+        {loading ? (
+          <div className="loading-state">
+            <div className="loading-spinner"></div>
+            <p>Loading products...</p>
+          </div>
+        ) : filteredProducts.length > 0 ? (
+          <div className="products-grid">
+            {filteredProducts.map(product => (
+              <ProductCard 
+                key={product._id} 
+                product={product} 
+                onAddToCart={handleAddToCart}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <p>No products found matching your criteria.</p>
+            <button 
+              className="btn btn-outline"
+              onClick={clearAllFilters}
+            >
+              Clear all filters
+            </button>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+};
+
+export default Shop;

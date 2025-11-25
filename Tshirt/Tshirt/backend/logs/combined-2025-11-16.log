@@ -1,0 +1,57 @@
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T05:05:30.357Z"}
+{"ip":"::1","level":"info","message":"GET /designs?page=1&limit=12&sort=-createdAt","timestamp":"2025-11-16T05:18:12.717Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T05:22:10.402Z"}
+{"ip":"127.0.0.1","level":"info","message":"GET /main.3260c31b2d8c00b41248.hot-update.json","timestamp":"2025-11-16T05:23:02.136Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /designs?page=1&limit=12&sort=-createdAt","timestamp":"2025-11-16T06:32:44.606Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T07:09:31.979Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T07:12:07.608Z"}
+{"ip":"127.0.0.1","level":"info","message":"GET /main.8df2d4fd673063a278f8.hot-update.json","timestamp":"2025-11-16T08:46:17.247Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T10:11:20.112Z"}
+{"ip":"127.0.0.1","level":"info","message":"GET /main.5575d78191c893eb06fe.hot-update.json","timestamp":"2025-11-16T10:11:26.640Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:43:56.824Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:43:58.548Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:44:27.666Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:44:28.843Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-16T10:45:46.918Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /api/products/featured","timestamp":"2025-11-16T10:54:24.658Z","userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019"}
+{"ip":"::1","level":"info","message":"GET /api/admin/dashboard","timestamp":"2025-11-16T10:54:29.293Z","userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:54:33.589Z","userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:54:54.081Z","userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:56:27.622Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T10:56:46.522Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:57:12.546Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:57:33.825Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:58:22.061Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:58:35.809Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T10:58:59.223Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/dashboard","timestamp":"2025-11-16T10:58:59.460Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/dashboard","timestamp":"2025-11-16T10:59:14.348Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/users","timestamp":"2025-11-16T10:59:14.353Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/orders","timestamp":"2025-11-16T10:59:14.359Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/inventory","timestamp":"2025-11-16T10:59:14.364Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/products","timestamp":"2025-11-16T10:59:14.370Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T11:04:41.612Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T11:06:49.176Z"}
+{"ip":"::1","level":"info","message":"GET /health","timestamp":"2025-11-16T11:06:59.029Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:07:03.671Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/users","timestamp":"2025-11-16T11:07:08.553Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/dashboard","timestamp":"2025-11-16T11:07:08.560Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/orders","timestamp":"2025-11-16T11:07:08.565Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/inventory","timestamp":"2025-11-16T11:07:08.569Z"}
+{"ip":"::1","level":"info","message":"GET /api/admin/products","timestamp":"2025-11-16T11:07:08.573Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T11:08:02.082Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T11:09:11.019Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-16T11:10:25.345Z"}
+{"ip":"::1","level":"info","message":"GET /health","timestamp":"2025-11-16T11:13:12.173Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:13:30.065Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:14:01.424Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:14:14.806Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:14:45.210Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:15:26.056Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:15:53.267Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:23:07.364Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"GET /api/admin/inventory","timestamp":"2025-11-16T11:23:45.821Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:25:32.344Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:25:46.236Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:27:29.899Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-16T11:27:41.375Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}

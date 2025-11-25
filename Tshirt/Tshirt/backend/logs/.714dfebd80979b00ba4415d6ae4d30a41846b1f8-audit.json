@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\adity\\Downloads\\tshirtco-main\\Tshirt\\Tshirt\\backend\\logs\\.714dfebd80979b00ba4415d6ae4d30a41846b1f8-audit.json",
+    "files": [
+        {
+            "date": 1764009426167,
+            "name": "C:\\Users\\adity\\Downloads\\tshirtco-main\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-25.log",
+            "hash": "515bbaf570206e97834bb850827f477fd06f5c902fd1e44bf3d581b0926ad1ba"
+        }
+    ],
+    "hashType": "sha256"
+}

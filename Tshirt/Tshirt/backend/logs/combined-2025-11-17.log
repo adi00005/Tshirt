@@ -1,0 +1,53 @@
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T03:25:08.015Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T03:29:28.890Z"}
+{"ip":"127.0.0.1","level":"info","message":"GET /main.804d21c0972ed8dfe930.hot-update.json","timestamp":"2025-11-17T03:29:34.110Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T03:32:34.147Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T09:40:22.813Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T09:40:52.693Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T09:52:53.626Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T09:58:15.694Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:00:58.959Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:10:35.169Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:15:06.324Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:17:59.857Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:18:07.769Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:18:11.982Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:24:07.165Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:39:12.444Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:39:17.027Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:40:48.245Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:42:40.710Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:43:33.458Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:45:18.406Z"}
+{"ip":"::1","level":"info","message":"GET /api/products/$%7Bid%7D%5C%60)%60","timestamp":"2025-11-17T10:46:58.991Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /favicon.ico","timestamp":"2025-11-17T10:47:00.459Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /api/products/featured","timestamp":"2025-11-17T10:49:00.579Z","userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019"}
+{"ip":"::1","level":"info","message":"GET /api/products/$%7Bid%7D%5C%60)%60","timestamp":"2025-11-17T10:49:05.394Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /favicon.ico","timestamp":"2025-11-17T10:49:05.742Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /api/products/$%7Bid%7D%5C%60)%60","timestamp":"2025-11-17T10:49:06.903Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /favicon.ico","timestamp":"2025-11-17T10:49:07.030Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T10:50:21.784Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T10:54:31.751Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T10:54:59.313Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T10:59:08.749Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T10:59:10.264Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T10:59:22.168Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:01:10.003Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T11:01:19.267Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T11:01:24.566Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:02:01.890Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:02:19.681Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:02:45.550Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signup","timestamp":"2025-11-17T11:03:17.770Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T11:03:38.209Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:04:24.904Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T11:04:33.399Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T11:04:40.392Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T11:04:54.792Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:09:22.109Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:09:33.653Z"}
+{"ip":"::1","level":"info","message":"POST /api/auth/signin","timestamp":"2025-11-17T11:10:19.931Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:20:23.490Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:21:10.888Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:21:32.606Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-17T11:21:51.955Z"}

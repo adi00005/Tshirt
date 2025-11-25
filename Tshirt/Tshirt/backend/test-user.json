@@ -1,0 +1,6 @@
+﻿{
+    "email":  "test@example.com",
+    "name":  "Test User",
+    "password":  "test1234",
+    "isActive":  true
+}

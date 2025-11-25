@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\.898ffd7171cb3b96195b025c70de0c708f126829-audit.json",
+    "files": [
+        {
+            "date": 1763185955274,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\error-2025-11-15.log",
+            "hash": "987e968018d6ed61ccf5a39c371555c370a6d87835f6cccf4b7a7f79329b616b"
+        },
+        {
+            "date": 1763269530263,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\error-2025-11-16.log",
+            "hash": "9a4db6271c510f3c97e7a0f2d800be875045971610fe0f284a997230ee8826aa"
+        },
+        {
+            "date": 1763349929433,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\error-2025-11-17.log",
+            "hash": "cf9f02223791f05b2061547108893fd38cb71e1f7f4a5fafcf0e86d08e5e2c4b"
+        },
+        {
+            "date": 1763792447199,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\error-2025-11-22.log",
+            "hash": "47f16a925ed908e0cd98382bc576dbd1116a040d731c8155d0030b1d7e53c6bf"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,9 @@
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-15T05:52:35.392Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-15T06:08:17.469Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-15T09:14:49.927Z"}
+{"ip":"127.0.0.1","level":"info","message":"GET /images/tshirts/crew-front.svg","timestamp":"2025-11-15T09:32:38.270Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"ip":"127.0.0.1","level":"info","message":"GET /images/tshirts/crew-front.svg","timestamp":"2025-11-15T09:33:17.400Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-15T09:35:07.889Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-15T10:32:37.542Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2025-11-15T11:34:54.086Z"}
+{"ip":"127.0.0.1","level":"info","message":"GET /main.504db0ca0c399beecbb2.hot-update.json","timestamp":"2025-11-15T11:34:56.930Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}

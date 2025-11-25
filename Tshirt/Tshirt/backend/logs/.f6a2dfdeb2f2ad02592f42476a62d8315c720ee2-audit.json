@@ -1,0 +1,45 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\.f6a2dfdeb2f2ad02592f42476a62d8315c720ee2-audit.json",
+    "files": [
+        {
+            "date": 1761372140431,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-10-25.log",
+            "hash": "4e360f2818c9e32d074cc29d523ff9e07363157707c206953276e06c84814701"
+        },
+        {
+            "date": 1762005187316,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-01.log",
+            "hash": "a76b42f3170725840c3781f22159e045dfd520777a5c9927e8dae22ec1befb8d"
+        },
+        {
+            "date": 1762076228339,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-02.log",
+            "hash": "40ac7e3df9d2c558159e6408e30501f59f974f5ee5c03ccc138945ac1524d325"
+        },
+        {
+            "date": 1763185955283,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-15.log",
+            "hash": "719a9ae34f47719e5d6a9eb091bdaac55566b7f239125ce21a521155b1329019"
+        },
+        {
+            "date": 1763269530271,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-16.log",
+            "hash": "d0f22db4322f9cb777d267077a5d9accf8ca310abd1117113d56301f4bf80ec9"
+        },
+        {
+            "date": 1763349908040,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-17.log",
+            "hash": "4fd25ed7a7c23346f653c568cd127d7ecd899627029c188ede9d45e05d8c1b95"
+        },
+        {
+            "date": 1763792447208,
+            "name": "D:\\Tshirt\\Tshirt\\Tshirt\\backend\\logs\\combined-2025-11-22.log",
+            "hash": "20f615269d22fa9b8af00b90b917925977f0618beff3cf84da11ddc9044a5f68"
+        }
+    ],
+    "hashType": "sha256"
+}
