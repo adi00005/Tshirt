@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "type": "module",
   "engines": {
-    "node": ">=14.0.0"
+    "node": "18.x"
   },
   "scripts": {
     "start": "node scripts/ensureLogsDir.js && node src/server.js",
