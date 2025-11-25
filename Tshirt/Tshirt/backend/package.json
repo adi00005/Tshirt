@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node scripts/ensureLogsDir.js && node src/server.js",
     "server": "nodemon src/server.js",
-    "dev": "cross-env NODE_ENV=development npm run ensure-logs && nodemon src/server.js",
+    "dev": "cross-env NODE_ENV=development node scripts/ensureLogsDir.js && nodemon src/server.js",
     "prod": "cross-env NODE_ENV=production node src/server.js",
     "seed-db": "node src/utils/seedDatabase.js",
     "test": "jest --detectOpenHandles",
@@ -20,8 +20,7 @@
     "ensure-logs": "node scripts/ensureLogsDir.js",
     "lint": "eslint . --ext .js",
     "format": "prettier --write \"**/*.js\"",
-  "prepare": "echo Skip Husky on Render"
-
+    "prepare": "echo Skip Husky on Render"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^7.0.1",
