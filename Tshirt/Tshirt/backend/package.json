@@ -20,7 +20,8 @@
     "ensure-logs": "node scripts/ensureLogsDir.js",
     "lint": "eslint . --ext .js",
     "format": "prettier --write \"**/*.js\"",
-    "prepare": "husky install"
+  "prepare": "echo Skip Husky on Render"
+
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^7.0.1",
